@@ -11,11 +11,6 @@ import org.thymeleaf.context.Context;
 import javax.annotation.Resource;
 import javax.mail.MessagingException;
 
-import static org.junit.Assert.*;
-
-/**
- * Created by admxj on 2018/10/6.
- */
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class MailServiceTest {
@@ -46,7 +41,7 @@ public class MailServiceTest {
 
     @Test
     public void sendAttachmentsMail() throws MessagingException {
-        String filePath = "/Users/admxj/Documents/软件开发前景.docx";
+        String filePath = "/ijiangtao/img/软件开发前景.docx";
         String content = "<html>\n" +
                 "<body>\n" +
                 "<h3>hello world</h3>\n" +

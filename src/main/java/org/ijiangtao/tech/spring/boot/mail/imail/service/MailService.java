@@ -14,9 +14,6 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.io.File;
 
-/**
- *
- */
 @Service
 public class MailService {
 
@@ -101,9 +98,12 @@ public class MailService {
     public void sendInlinkResourceMail(String to, String subject, String contnet,
                                        String rscPath, String rscId) {
         logger.info("发送静态邮件开始: {},{},{},{},{}", to, subject, contnet, rscPath, rscId);
+
         MimeMessage message = mailSender.createMimeMessage();
         MimeMessageHelper helper = null;
+
         try {
+
             helper = new MimeMessageHelper(message, true);
             helper.setTo(to);
             helper.setSubject(subject);
@@ -114,11 +114,11 @@ public class MailService {
             helper.addInline(rscId, res);
             mailSender.send(message);
             logger.info("发送静态邮件成功!");
+
         } catch (MessagingException e) {
             logger.info("发送静态邮件失败: ", e);
         }
 
-
-
     }
+
 }
